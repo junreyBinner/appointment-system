@@ -2,7 +2,6 @@ FROM php:8.2-fpm
 
 ENV PORT=10000
 
-# System deps
 RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
@@ -18,21 +17,17 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /var/www
 
-# Copy app
 COPY . .
 
-# Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Permissions (VERY IMPORTANT)
-RUN mkdir -p storage/logs storage/framework/{cache,sessions,views} \
- && chown -R www-data:www-data storage bootstrap/cache \
- && chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-# Configs
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 10000
+
 CMD ["/usr/bin/supervisord", "-n"]
