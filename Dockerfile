@@ -1,24 +1,37 @@
-FROM php:8.2-fpm
+# ======================
+# 1️⃣ FRONTEND BUILD
+# ======================
+FROM node:18-bullseye AS frontend
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+
+COPY resources ./resources
+COPY vite.config.js ./
+RUN npm run build
+
+
+# ======================
+# 2️⃣ PHP + NGINX RUNTIME
+# ======================
+FROM php:8.2-fpm-bullseye
 
 RUN apt-get update && apt-get install -y \
     nginx supervisor git unzip curl \
     libzip-dev libpng-dev libjpeg-dev libonig-dev libxml2-dev \
-    zip python3 make g++ \
+    zip \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
-
-# Node 18
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
 
 WORKDIR /var/www
 COPY . .
 
+# Copy built assets
+COPY --from=frontend /app/public/build /var/www/public/build
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
-
-ENV NODE_OPTIONS=--max-old-space-size=512
-RUN npm install --legacy-peer-deps && npm run build
 
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
