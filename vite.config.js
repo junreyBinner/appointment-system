@@ -8,7 +8,14 @@ export default defineConfig({
             input: ['resources/js/app.js'],
             refresh: true,
         }),
-        vue(),
+        vue({
+      template: {
+        transformAssetUrls: {
+          base: null,
+          includeAbsolute: false,
+        },
+      },
+    }),
     ],
     build: {
         outDir: 'public/build',
