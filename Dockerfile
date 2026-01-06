@@ -1,40 +1,23 @@
-# ======================
-# 1️⃣ FRONTEND BUILD
-# ======================
-FROM node:18-bullseye AS frontend
+FROM php:8.2-fpm
 
-WORKDIR /app
-
-# Copy package files
-COPY package.json package-lock.json ./
-RUN npm install --legacy-peer-deps
-
-# Copy ONLY what Vite needs
-COPY resources ./resources
-COPY public ./public
-COPY vite.config.js ./
-
-# Build
-RUN npm run build
-
-
-# ======================
-# 2️⃣ PHP + NGINX RUNTIME
-# ======================
-FROM php:8.2-fpm-bullseye
-
+# System deps
 RUN apt-get update && apt-get install -y \
-    nginx supervisor git unzip curl \
-    libzip-dev libpng-dev libjpeg-dev libonig-dev libxml2-dev \
+    nginx \
+    supervisor \
+    git \
+    unzip \
+    curl \
+    libzip-dev \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
     zip \
-    && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
 
 WORKDIR /var/www
-COPY . .
 
-# Copy built assets from frontend
-COPY --from=frontend /app/public/build /var/www/public/build
+# Copy app
+COPY . .
 
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
