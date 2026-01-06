@@ -1,7 +1,5 @@
 FROM php:8.2-fpm
 
-ENV PORT=10000
-
 RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
@@ -13,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
+    gettext-base \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
 
 WORKDIR /var/www
@@ -25,9 +24,12 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-COPY docker/nginx.conf /etc/nginx/sites-available/default
+COPY docker/nginx.conf /etc/nginx/templates/default.conf.template
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/php-fpm.conf /usr/local/etc/php-fpm.d/zz-render.conf
 
-EXPOSE 10000
-CMD ["/usr/bin/supervisord", "-n"]
+EXPOSE 8080
+
+CMD envsubst '$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/sites-available/default \
+ && nginx -t \
+ && /usr/bin/supervisord -n
