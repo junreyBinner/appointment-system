@@ -25,9 +25,16 @@ COPY . .
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
+# Laravel cache reset (DITO MO ITO ILALAGAY ✔)
+RUN php artisan config:clear \
+ && php artisan cache:clear \
+ && php artisan route:clear \
+ && php artisan view:clear
+
 # Permissions
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+RUN mkdir -p storage/logs storage/framework/{cache,sessions,views} \
+ && chown -R www-data:www-data storage bootstrap/cache \
+ && chmod -R 775 storage bootstrap/cache
 
 # Configs
 COPY docker/nginx.conf /etc/nginx/sites-available/default
