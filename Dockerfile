@@ -2,10 +2,11 @@ FROM php:8.2-fpm
 
 RUN apt-get update && apt-get install -y \
     nginx supervisor git unzip curl \
-    libzip-dev libpng-dev libonig-dev libxml2-dev \
+    libzip-dev libpng-dev libjpeg-dev libonig-dev libxml2-dev \
     zip python3 make g++ \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
+
 
 # Node 18
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
