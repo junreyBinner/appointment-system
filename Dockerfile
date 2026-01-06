@@ -27,7 +27,7 @@ RUN chown -R www-data:www-data /var/www \
 
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/php-fpm.conf /usr/local/etc/php-fpm.d/zz-render.conf
 
 EXPOSE 10000
-
 CMD ["/usr/bin/supervisord", "-n"]
