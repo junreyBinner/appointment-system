@@ -6,9 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OtpMail extends Mailable
+class OtpMail extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+     use Queueable, SerializesModels;
 
     public $otp;
     public $expiresAt;

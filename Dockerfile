@@ -25,7 +25,7 @@ COPY . .
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# ✅ INSTALL & BUILD FRONTEND (THE MISSING PIECE)
+# INSTALL & BUILD FRONTEND
 RUN npm install && npm run build
 
 # Permissions
