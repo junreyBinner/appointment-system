@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Mail;
-
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OtpMail extends Mailable
+
+class OtpMail extends Mailable implements ShouldQueue
 {
      use SerializesModels;
 

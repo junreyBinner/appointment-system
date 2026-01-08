@@ -60,9 +60,9 @@ public function store(Request $request)
     );
 
     try {
-        Mail::to($user->email)->send(
-            new OtpMail($otp, $expiresAt->format('h:i A'))
-        );
+       Mail::to($user->email)->queue(
+    new OtpMail($otp, $expiresAt->format('h:i A'))
+);
     } catch (\Exception $e) {
         \Log::error('REGISTER OTP MAIL FAILED: ' . $e->getMessage());
 
