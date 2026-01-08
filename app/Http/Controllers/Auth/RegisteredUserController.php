@@ -48,25 +48,30 @@ public function store(Request $request)
         'password' => Hash::make($request->password),
     ]);
 
-    // Generate OTP
     $otp = rand(100000, 999999);
-$expiresAt = now()->addMinutes(5);
+    $expiresAt = now()->addMinutes(5);
 
-EmailOtp::updateOrCreate(
-    ['email' => $user->email],
-    [
-        'otp' => Hash::make($otp),
-        'expires_at' => $expiresAt,
-    ]
-);
+    EmailOtp::updateOrCreate(
+        ['email' => $user->email],
+        [
+            'otp' => Hash::make($otp),
+            'expires_at' => $expiresAt,
+        ]
+    );
 
-    // Send email
-  Mail::to($user->email)->send(
-    new OtpMail(
-        $otp,
-        $expiresAt->format('h:i A')
-    )
-);
+    try {
+        Mail::to($user->email)->send(
+            new OtpMail($otp, $expiresAt->format('h:i A'))
+        );
+    } catch (\Exception $e) {
+        \Log::error('REGISTER OTP MAIL FAILED: ' . $e->getMessage());
+
+        return back()->withErrors([
+            'email' => 'Failed to send OTP. Please try again later.'
+        ]);
+    }
+
     return redirect()->route('otp.verify', ['email' => $user->email]);
 }
+
 }
