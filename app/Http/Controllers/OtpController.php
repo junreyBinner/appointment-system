@@ -64,12 +64,13 @@ public function resend(Request $request)
 
 
     // Send OTP email using Blade template
-   Mail::to($request->email)->queue(
+ Mail::to($request->email)->send(
     new OtpMail(
         $otp,
         $expiresAt->format('h:i A')
     )
 );
+
 
 
     // Redirect to OTP verification page with email
