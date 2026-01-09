@@ -67,12 +67,10 @@ public function resend(Request $request)
 try {
    Mail::to($request->email)->send(new OtpMail($otp, $expiresAt->format('h:i A')));
 
-} catch (\Exception $e) {
+} catch (\Throwable $e) {
     \Log::error('OTP mail failed: ' . $e->getMessage());
 
-    return back()->withErrors([
-        'email' => 'Failed to send OTP. Please try again later.'
-    ]);
+    dd($e->getMessage());
 }
 
 
