@@ -65,9 +65,7 @@ public function resend(Request $request)
 
     // Send OTP email using Blade template
 try {
-   Mail::to($request->email)->queue(
-    new OtpMail($otp, $expiresAt->format('h:i A'))
-);
+   Mail::to($request->email)->send(new OtpMail($otp, $expiresAt->format('h:i A')));
 
 } catch (\Exception $e) {
     \Log::error('OTP mail failed: ' . $e->getMessage());
