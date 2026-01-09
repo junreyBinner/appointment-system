@@ -62,10 +62,12 @@ public function store(Request $request)
     try {
        Mail::to($user->email)->send(new OtpMail($otp, $expiresAt->format('h:i A')));
 
-    } catch (\Throwable $e) {
+    } catch (\Exception $e) {
         \Log::error('REGISTER OTP MAIL FAILED: ' . $e->getMessage());
 
-        dd($e->getMessage());
+         return back()->withErrors([
+            'email' => 'Failed to send OTP. Please try again later.'
+        ]);
     }
 
     return redirect()->route('otp.verify', ['email' => $user->email]);
