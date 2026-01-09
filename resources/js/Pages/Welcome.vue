@@ -103,19 +103,94 @@
                                     class="h-40 w-40 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 p-1 animate-spin-slow"
                                 >
                                     <div
-                                        class="h-full w-full rounded-full bg-white p-2"
+                                        class="h-full w-full rounded-full bg-white p-6 flex items-center justify-center"
                                     >
-                                        <img
-                                            src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f393.png"
-                                            alt="Graduation Cap"
-                                            class="h-full w-full object-contain"
-                                        />
+                                        <!-- Appointment System Icon -->
+                                        <div class="relative">
+                                            <!-- Calendar Base -->
+                                            <div
+                                                class="w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg border-2 border-purple-200 flex flex-col items-center justify-center"
+                                            >
+                                                <!-- Calendar Header -->
+                                                <div
+                                                    class="w-full h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-t-lg flex items-center justify-center"
+                                                >
+                                                    <div
+                                                        class="w-3 h-3 bg-white rounded-full mx-1"
+                                                    ></div>
+                                                    <div
+                                                        class="w-3 h-3 bg-white rounded-full mx-1"
+                                                    ></div>
+                                                    <div
+                                                        class="w-3 h-3 bg-white rounded-full mx-1"
+                                                    ></div>
+                                                </div>
+
+                                                <!-- Calendar Body -->
+                                                <div
+                                                    class="flex-1 flex flex-col items-center justify-center p-2"
+                                                >
+                                                    <div
+                                                        class="text-2xl font-bold text-purple-700"
+                                                    >
+                                                        15
+                                                    </div>
+                                                    <div
+                                                        class="text-xs text-gray-600 font-medium"
+                                                    >
+                                                        Appointments
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Clock Overlay -->
+                                            <div
+                                                class="absolute -top-2 -right-2 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center animate-pulse"
+                                            >
+                                                <svg
+                                                    class="h-6 w-6 text-white"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+
+                                            <!-- Checkmark -->
+                                            <div
+                                                class="absolute -bottom-2 -left-2 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center"
+                                            >
+                                                <svg
+                                                    class="h-5 w-5 text-white"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M5 13l4 4L19 7"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div
-                                    class="absolute -bottom-2 -right-2 h-12 w-12 bg-yellow-300 rounded-full flex items-center justify-center animate-bounce"
+                                    class="absolute -bottom-2 -right-2 h-12 w-12 bg-yellow-300 rounded-full animate-bounce"
                                 >
-                                    <span class="text-2xl">📚</span>
+                                    <!-- Center using absolute positioning inside -->
+                                    <span
+                                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl"
+                                        >✅</span
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -231,123 +306,321 @@
                 </div>
             </div>
 
-            <!-- Features Section -->
-            <div id="features" class="py-20 bg-white/50 backdrop-blur-sm">
+            <div class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div
-                        class="text-center transform transition-all duration-700"
-                    >
+                    <div class="text-center mb-16">
                         <div
-                            class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 mb-4"
+                            class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 mb-4"
                         >
-                            <SparklesIcon
-                                class="h-5 w-5 text-purple-600 mr-2"
+                            <ComputerDesktopIcon
+                                class="h-5 w-5 text-blue-600 mr-2"
                             />
-                            <span class="text-sm font-semibold text-purple-600"
-                                >Perfect for Student Users</span
+                            <span class="text-sm font-semibold text-blue-600"
+                                >Dashboard Preview</span
                             >
                         </div>
                         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-                            Made Specifically for
+                            Experience Our
                             <span
-                                class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                                class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
                             >
-                                Students & Our Group
+                                Simple Dashboards
                             </span>
                         </h2>
                         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                            No business accounts needed! Users can easily
-                            register and book available services in a simple and
-                            user-friendly system ✨
+                            Experience effortless appointment management with
+                            our clean, intuitive interface that makes booking
+                            simple for all users.
                         </p>
                     </div>
 
-                    <div
-                        class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-                    >
-                        <!-- Feature 1 -->
-                        <div
-                            class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500"
-                        >
+                    <!-- Dashboard Images Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- User Dashboard -->
+                        <div class="group relative">
+                            <!-- Glow Effect Background -->
                             <div
-                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                            >
-                                <UserGroupIcon class="h-8 w-8 text-white" />
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                                Easy User Registration
-                            </h3>
-                            <p class="text-gray-600 mb-6">
-                                Users can quickly create an account and access
-                                the system without needing any business setup.
-                                Simple, fast, and user-friendly.
-                            </p>
+                                class="absolute -inset-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-all duration-500"
+                            ></div>
+
+                            <!-- Main Card -->
                             <div
-                                class="flex items-center text-purple-600 font-medium"
+                                class="relative bg-white rounded-2xl p-8 shadow-2xl"
                             >
-                                <span>User-focused system</span>
-                                <ArrowRightIcon
-                                    class="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform duration-300"
-                                />
+                                <!-- Card Header -->
+                                <div
+                                    class="flex items-center justify-between mb-8"
+                                >
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-12 w-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center"
+                                        >
+                                            <UserIcon
+                                                class="h-7 w-7 text-white"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h3
+                                                class="text-2xl font-bold text-gray-900"
+                                            >
+                                                User Dashboard
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                For students and regular users
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium"
+                                    >
+                                        Student View
+                                    </span>
+                                </div>
+
+                                <!-- Image Container -->
+                                <div
+                                    class="relative rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 bg-white group-hover:border-purple-300 transition-all duration-300"
+                                >
+                                    <!-- Actual Image -->
+                                    <img
+                                        src="/images/userside.png"
+                                        alt="User Dashboard Preview"
+                                        class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500"
+                                    />
+
+                                    <!-- Overlay on hover -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6"
+                                    >
+                                        <div
+                                            class="bg-white/90 backdrop-blur-sm rounded-lg p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                                        >
+                                            <p
+                                                class="text-gray-900 font-medium text-center"
+                                            >
+                                                Manage your bookings easily
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Features List -->
+                                <div class="mt-8 space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center"
+                                        >
+                                            <CheckIcon
+                                                class="h-5 w-5 text-purple-600"
+                                            />
+                                        </div>
+                                        <span class="text-gray-700"
+                                            >View upcoming appointments</span
+                                        >
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center"
+                                        >
+                                            <CheckIcon
+                                                class="h-5 w-5 text-purple-600"
+                                            />
+                                        </div>
+                                        <span class="text-gray-700"
+                                            >Book available services</span
+                                        >
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center"
+                                        >
+                                            <CheckIcon
+                                                class="h-5 w-5 text-purple-600"
+                                            />
+                                        </div>
+                                        <span class="text-gray-700"
+                                            >Check account status</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Feature 2 -->
-                        <div
-                            class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500"
-                        >
+                        <!-- Admin Dashboard -->
+                        <div class="group relative">
+                            <!-- Glow Effect Background -->
                             <div
-                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                            >
-                                <CalendarDaysIcon class="h-8 w-8 text-white" />
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                                Book Available Services
-                            </h3>
-                            <p class="text-gray-600 mb-6">
-                                View available services and choose a suitable
-                                schedule. Book appointments easily with just a
-                                few clicks.
-                            </p>
+                                class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-all duration-500"
+                            ></div>
+
+                            <!-- Main Card -->
                             <div
-                                class="flex items-center text-blue-600 font-medium"
+                                class="relative bg-white rounded-2xl p-8 shadow-2xl"
                             >
-                                <span>Simple booking flow</span>
-                                <ArrowRightIcon
-                                    class="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform duration-300"
-                                />
+                                <!-- Card Header -->
+                                <div
+                                    class="flex items-center justify-between mb-8"
+                                >
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-12 w-12 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center"
+                                        >
+                                            <ShieldCheckIcon
+                                                class="h-7 w-7 text-white"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h3
+                                                class="text-2xl font-bold text-gray-900"
+                                            >
+                                                Admin Dashboard
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                For system administrators
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                                    >
+                                        Admin View
+                                    </span>
+                                </div>
+
+                                <!-- Image Container -->
+                                <div
+                                    class="relative rounded-xl overflow-hidden shadow-lg border-2 border-gray-200 bg-white group-hover:border-blue-300 transition-all duration-300"
+                                >
+                                    <!-- Actual Image -->
+                                    <img
+                                        src="/images/adminside.png"
+                                        alt="Admin Dashboard Preview"
+                                        class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500"
+                                    />
+
+                                    <!-- Overlay on hover -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6"
+                                    >
+                                        <div
+                                            class="bg-white/90 backdrop-blur-sm rounded-lg p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                                        >
+                                            <p
+                                                class="text-gray-900 font-medium text-center"
+                                            >
+                                                Manage system and appointments
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Features List -->
+                                <div class="mt-8 space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center"
+                                        >
+                                            <CheckIcon
+                                                class="h-5 w-5 text-blue-600"
+                                            />
+                                        </div>
+                                        <span class="text-gray-700"
+                                            >System performance overview</span
+                                        >
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center"
+                                        >
+                                            <CheckIcon
+                                                class="h-5 w-5 text-blue-600"
+                                            />
+                                        </div>
+                                        <span class="text-gray-700"
+                                            >Manage appointments</span
+                                        >
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center"
+                                        >
+                                            <CheckIcon
+                                                class="h-5 w-5 text-blue-600"
+                                            />
+                                        </div>
+                                        <span class="text-gray-700"
+                                            >Control services</span
+                                        >
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Feature 3 -->
+                    <!-- CTA Section -->
+                    <div class="text-center mt-16">
                         <div
-                            class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500"
+                            class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 mb-6"
                         >
-                            <div
-                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                            <RocketLaunchIcon
+                                class="h-6 w-6 text-blue-600 mr-3"
+                            />
+                            <span class="text-lg font-semibold text-blue-600"
+                                >Ready to Experience?</span
                             >
-                                <BellAlertIcon class="h-8 w-8 text-white" />
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                                Appointment Reminders
-                            </h3>
-                            <p class="text-gray-600 mb-6">
-                                Stay informed with email notifications and
-                                reminders so you never miss your scheduled
-                                appointment.
-                            </p>
-                            <div
-                                class="flex items-center text-green-600 font-medium"
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">
+                            Start Using Our Dashboard Today!
+                        </h3>
+                        <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+                            Sign up today and experience our intuitive dashboard
+                            where you can easily manage appointments, book
+                            services, and track your schedules all in one place.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row justify-center gap-4"
+                        >
+                            <Link
+                                v-if="!$page.props.auth.user"
+                                :href="route('register')"
+                                class="group px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 hover:shadow-xl transition-all duration-300"
                             >
-                                <span>Stay on track</span>
-                                <ArrowRightIcon
-                                    class="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform duration-300"
-                                />
-                            </div>
+                                <span class="flex items-center space-x-3">
+                                    <UserPlusIcon class="h-6 w-6" />
+                                    <span>Create Free Account</span>
+                                </span>
+                            </Link>
+                            <Link
+                                v-if="$page.props.auth.user"
+                                :href="
+                                    $page.props.auth.user.role === 'admin'
+                                        ? route('admin.dashboard')
+                                        : route('customer.dashboard')
+                                "
+                                class="group px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 transform hover:scale-105 hover:shadow-xl transition-all duration-300"
+                            >
+                                <span class="flex items-center space-x-3">
+                                    <ArrowRightIcon class="h-6 w-6" />
+                                    <span>Go to My Dashboard</span>
+                                </span>
+                            </Link>
+                            <a
+                                href="#features"
+                                class="group px-8 py-4 text-lg font-medium rounded-xl text-gray-700 bg-white border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transform hover:scale-105 hover:shadow-xl transition-all duration-300"
+                            >
+                                <span class="flex items-center space-x-3">
+                                    <span>View More Features</span>
+                                    <ChevronDownIcon
+                                        class="h-5 w-5 group-hover:animate-bounce"
+                                    />
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Features Section -->
 
             <div class="py-20 bg-gradient-to-r from-purple-50 to-pink-50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
