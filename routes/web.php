@@ -22,41 +22,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/verify-otp', [OtpController::class, 'index'])
-//     ->name('otp.verify');
-
-// Route::post('/verify-otp', [OtpController::class, 'verify'])
-//     ->name('otp.verify.submit');
-
-// Route::post('/resend-otp', [OtpController::class, 'resend'])
-//     ->middleware('throttle:3,1')
-//     ->name('otp.resend');
-
-
-// ================= EMAIL VERIFICATION =================
-
-Route::get('/email/verify', function () {
-    return Inertia::render('Auth/VerifyEmail');
-})->middleware('auth')->name('verification.notice');
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    // optional: redirect depende sa role
-    if ($request->user()->role === 'admin') {
-        return redirect()->route('admin.dashboard');
-    }
-
-    return redirect()->route('customer.dashboard');
-})->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification', function () {
-    request()->user()->sendEmailVerificationNotification();
-
-    return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
-
 
 //  VERIFIED middleware
 Route::middleware(['auth', 'verified', 'role:customer'])->group(function () {

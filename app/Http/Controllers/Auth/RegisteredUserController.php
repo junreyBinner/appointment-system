@@ -43,16 +43,13 @@ public function store(Request $request)
         'name' => $request->name,
         'email' => $request->email,
         'password' => Hash::make($request->password),
+        'role' => 'customer',
     ]);
 
-    // ✅ CRITICAL: triggers email verification notification
-    event(new Registered($user));
-
-    // ✅ login user (required for verification routes)
+    
     Auth::login($user);
 
-    // ✅ redirect to verify email notice page
-    return redirect()->route('verification.notice');
-}
+    return redirect()->route('customer.dashboard');
 
+}
 }
