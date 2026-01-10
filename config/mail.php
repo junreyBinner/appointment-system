@@ -43,6 +43,7 @@ return [
         'username' => env('MAIL_USERNAME'),
         'password' => env('MAIL_PASSWORD'),
         'encryption' => env('MAIL_ENCRYPTION'),
+        'timeout' => 10,
     ],
 
         'ses' => [
