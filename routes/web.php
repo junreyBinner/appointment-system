@@ -31,7 +31,14 @@ Route::post('/resend-otp', [OtpController::class, 'resend'])
     ->middleware('throttle:3,1')
     ->name('otp.resend');
 
-    
+    Route::get('/debug-mail', function () {
+    Mail::to('githubj21@gmail.com')->send(
+        new \App\Mail\OtpMail('123456', now()->addMinutes(5)->format('h:i A'))
+    );
+
+    return 'MAIL SENT';
+});
+
 
 
 //  VERIFIED middleware
