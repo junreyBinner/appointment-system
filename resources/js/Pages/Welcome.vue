@@ -1,5 +1,5 @@
 <template>
-    <Head title="SchoolSync - Appointment System" />
+    <Head title="Appointment System" />
 
     <!-- Hero Section with Anime Background -->
     <div
@@ -40,11 +40,8 @@
                             <span
                                 class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
                             >
-                                SchoolSync
+                                Appointment
                             </span>
-                            <p class="text-xs text-gray-500 -mt-1">
-                                Appointment System
-                            </p>
                         </div>
                     </div>
 
@@ -68,7 +65,7 @@
                         >
                             <span class="flex items-center space-x-2">
                                 <UserPlusIcon class="h-5 w-5" />
-                                <span>Sign up</span>
+                                <span>Create Account</span>
                             </span>
                         </Link>
 
@@ -212,9 +209,9 @@
                         <p
                             class="mt-4 max-w-md mx-auto text-lg text-gray-600 sm:text-xl md:mt-6 md:max-w-3xl md:text-2xl"
                         >
-                            A student-friendly appointment booking system where
-                            users can register and book available services
-                            easily. Built for school activity purposes only. 🎓
+                            An intuitive appointment booking system where users
+                            can Create Account and book available services easily.
+                            Designed for seamless schedule management.
                         </p>
 
                         <!-- Animated Stats -->
@@ -661,7 +658,7 @@
                                 <h3
                                     class="text-2xl font-bold text-center text-gray-900 mb-4"
                                 >
-                                    Register Account
+                                    Create Account
                                 </h3>
                                 <p class="text-gray-600 text-center">
                                     Create your account in just a few steps
@@ -830,7 +827,7 @@
                             class="text-xl text-purple-100 mb-10 max-w-2xl mx-auto"
                         >
                             A simple appointment booking system where users can
-                            register, choose available services, and manage
+                            create accounts, choose available services, and manage
                             their bookings with confidence.
                         </p>
 
@@ -975,10 +972,10 @@
                 <!-- Copyright -->
                 <div class="mt-12 pt-8 border-t border-gray-800 text-center">
                     <p class="text-gray-400">
-                        Built with ❤️ as an academic project • PHP
+                        Built with  as an academic project • PHP
                     </p>
                     <p class="text-sm text-gray-500 mt-2">
-                        SchoolSync © 2026 • A simple appointment booking system
+                        Appointment © 2026 • A simple appointment booking system
                         for learning purposes
                     </p>
                 </div>
@@ -989,9 +986,12 @@
 
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
-import { CheckIcon } from '@heroicons/vue/24/solid'
+import { CheckIcon } from "@heroicons/vue/24/solid";
+
 import {
-    
+    UserIcon,
+    ArrowRightOnRectangleIcon,
+    ComputerDesktopIcon,
     BookOpenIcon,
     ShieldCheckIcon,
     UserPlusIcon,

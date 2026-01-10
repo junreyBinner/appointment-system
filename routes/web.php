@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 
 //  VERIFIED middleware
-Route::middleware(['auth', 'verified', 'role:customer'])->group(function () {
+Route::middleware(['auth',  'role:customer'])->group(function () {
     Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('/dashboard', [CustomerAppointmentController::class, 'dashboard'])
             ->name('dashboard');
@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified', 'role:customer'])->group(function () {
 });
 
 //  ADMIN ROUTES with explicit middleware
-Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+Route::middleware(['auth',  'role:admin'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
@@ -71,7 +71,7 @@ Route::patch('/services/{service}/toggle-status',
 
 
 // ================= USER PROFILE =================
-Route::middleware(['auth', 'verified', 'role:customer'])->group(function () {
+Route::middleware(['auth',  'role:customer'])->group(function () {
     Route::get('/profile', function () {
         return Inertia::render('Profile/Edit');
     })->name('profile.edit');

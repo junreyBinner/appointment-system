@@ -23,7 +23,7 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Sign up</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Create Account</h2>
 
         <form @submit.prevent="submit" class="space-y-4">
             <!-- Name -->
@@ -168,7 +168,7 @@ const submit = () => {
                 :class="{ 'opacity-25': form.processing }"
                 :disabled="form.processing"
             >
-                Register
+                Create Account
             </PrimaryButton>
 
             <p class="text-center text-sm text-gray-600 mt-4">
