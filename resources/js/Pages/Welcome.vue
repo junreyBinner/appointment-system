@@ -366,14 +366,14 @@
                                                 User Dashboard
                                             </h3>
                                             <p class="text-gray-600">
-                                                For students and regular users
+                                                For users
                                             </p>
                                         </div>
                                     </div>
                                     <span
                                         class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium"
                                     >
-                                        Student View
+                                        User View
                                     </span>
                                 </div>
 
