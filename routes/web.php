@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -21,23 +22,39 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/verify-otp', [OtpController::class, 'index'])
-    ->name('otp.verify');
+// Route::get('/verify-otp', [OtpController::class, 'index'])
+//     ->name('otp.verify');
 
-Route::post('/verify-otp', [OtpController::class, 'verify'])
-    ->name('otp.verify.submit');
+// Route::post('/verify-otp', [OtpController::class, 'verify'])
+//     ->name('otp.verify.submit');
 
-Route::post('/resend-otp', [OtpController::class, 'resend'])
-    ->middleware('throttle:3,1')
-    ->name('otp.resend');
+// Route::post('/resend-otp', [OtpController::class, 'resend'])
+//     ->middleware('throttle:3,1')
+//     ->name('otp.resend');
 
-    Route::get('/debug-mail', function () {
-    Mail::to('githubj21@gmail.com')->send(
-        new \App\Mail\OtpMail('123456', now()->addMinutes(5)->format('h:i A'))
-    );
 
-    return 'MAIL SENT';
-});
+// ================= EMAIL VERIFICATION =================
+
+Route::get('/email/verify', function () {
+    return Inertia::render('Auth/VerifyEmail');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    // optional: redirect depende sa role
+    if ($request->user()->role === 'admin') {
+        return redirect()->route('admin.dashboard');
+    }
+
+    return redirect()->route('customer.dashboard');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function () {
+    request()->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
 

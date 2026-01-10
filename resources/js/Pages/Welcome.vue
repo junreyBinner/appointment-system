@@ -989,17 +989,16 @@
 
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
+import { CheckIcon } from '@heroicons/vue/24/solid'
 import {
+    
     BookOpenIcon,
-    ArrowRightOnRectangleIcon,
+    ShieldCheckIcon,
     UserPlusIcon,
     CalendarDaysIcon,
-    BellAlertIcon,
-    UserGroupIcon,
     CheckCircleIcon,
     ArrowRightIcon,
     ChevronDownIcon,
-    SparklesIcon,
     RocketLaunchIcon,
 } from "@heroicons/vue/24/outline";
 </script>

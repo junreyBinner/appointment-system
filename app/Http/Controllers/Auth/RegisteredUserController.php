@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\EmailOtp;
-use App\Mail\OtpMail;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
@@ -48,31 +45,14 @@ public function store(Request $request)
         'password' => Hash::make($request->password),
     ]);
 
-    $otp = rand(100000, 999999);
-    $expiresAt = now()->addMinutes(5);
+    // ✅ CRITICAL: triggers email verification notification
+    event(new Registered($user));
 
-    EmailOtp::updateOrCreate(
-        ['email' => $user->email],
-        [
-            'otp' => Hash::make($otp),
-            'expires_at' => $expiresAt,
-        ]
-    );
+    // ✅ login user (required for verification routes)
+    Auth::login($user);
 
-   try {
-    Mail::to($request->email)->send(
-    new OtpMail($otp, $expiresAt->format('h:i A'))
-);
-
-
-} catch (\Exception $e) {
-    \Log::error('RESEND FAILED: '.$e->getMessage());
-
-    return back()->withErrors([
-        'email' => 'Failed to send OTP. Please try again later.'
-    ]);
-}
-    return redirect()->route('otp.verify', ['email' => $user->email]);
+    // ✅ redirect to verify email notice page
+    return redirect()->route('verification.notice');
 }
 
 }
