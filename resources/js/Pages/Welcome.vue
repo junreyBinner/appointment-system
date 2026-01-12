@@ -38,9 +38,9 @@
                         </div>
                         <div>
                             <span
-                                class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                                class="text-2xl font-bold font-serif bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
                             >
-                                Appointment
+                                Clinic Appointment
                             </span>
                         </div>
                     </div>
@@ -198,20 +198,23 @@
                             <span
                                 class="block transform hover:scale-105 transition-transform duration-300"
                             >
-                                Booking System
+                                Clinic Booking System
                             </span>
+
                             <span
                                 class="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient"
                             >
-                                Appointments Easily!
+                                Your Health, Scheduled with Ease
                             </span>
                         </h1>
+
                         <p
                             class="mt-4 max-w-md mx-auto text-lg text-gray-600 sm:text-xl md:mt-6 md:max-w-3xl md:text-2xl"
                         >
-                            An intuitive appointment booking system where users
-                            can Create Account and book available services easily.
-                            Designed for seamless schedule management.
+                            A modern, patient-friendly appointment platform
+                            helps clients book medical services quickly and
+                            easily. It is designed for efficient clinic
+                            operations and a better patient experience.
                         </p>
 
                         <!-- Animated Stats -->
@@ -764,49 +767,83 @@
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- 3 Columns Layout -->
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                    >
+                        <!-- General Consultation -->
                         <div
                             class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300"
                         >
-                            <div class="text-4xl mb-4">🗣️</div>
+                            <div class="text-4xl mb-4">🩺</div>
                             <h3 class="font-bold text-gray-900">
-                                Consultation Services
+                                General Consultation
                             </h3>
                             <p class="text-sm text-gray-600 mt-2">
-                                Book one-on-one consultations easily.
+                                Consult with our licensed medical professionals.
                             </p>
                         </div>
+
+                        <!-- Dental Check-up -->
                         <div
                             class="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300"
                         >
-                            <div class="text-4xl mb-4">🧪</div>
+                            <div class="text-4xl mb-4">🦷</div>
                             <h3 class="font-bold text-gray-900">
-                                Session Appointments
+                                Dental Check-up
                             </h3>
                             <p class="text-sm text-gray-600 mt-2">
-                                Schedule sessions based on availability.
+                                Complete dental examination and oral care.
                             </p>
                         </div>
+
+                        <!-- Pediatric Consultation -->
                         <div
                             class="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300"
                         >
-                            <div class="text-4xl mb-4">👥</div>
+                            <div class="text-4xl mb-4">👶</div>
                             <h3 class="font-bold text-gray-900">
-                                Group Meetings
+                                Pediatric Consultation
                             </h3>
                             <p class="text-sm text-gray-600 mt-2">
-                                Reserve time slots for group activities.
+                                Child health check-ups and assessments.
                             </p>
                         </div>
+
+                        <!-- Medical Certificate -->
                         <div
                             class="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300"
                         >
-                            <div class="text-4xl mb-4">📅</div>
+                            <div class="text-4xl mb-4">📄</div>
                             <h3 class="font-bold text-gray-900">
-                                Resource Booking
+                                Medical Certificate
                             </h3>
                             <p class="text-sm text-gray-600 mt-2">
-                                Book available resources with ease.
+                                Request certified medical documentation.
+                            </p>
+                        </div>
+
+                        <!-- Follow-up Check-up -->
+                        <div
+                            class="bg-gradient-to-br from-red-100 to-rose-100 rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300"
+                        >
+                            <div class="text-4xl mb-4">🔁</div>
+                            <h3 class="font-bold text-gray-900">
+                                Follow-up Check-up
+                            </h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Continue your ongoing treatment or evaluation.
+                            </p>
+                        </div>
+
+                        <!-- Vaccination -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-100 to-blue-100 rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300"
+                        >
+                            <div class="text-4xl mb-4">💉</div>
+                            <h3 class="font-bold text-gray-900">Vaccination</h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Get your required immunizations safely.
                             </p>
                         </div>
                     </div>
@@ -827,8 +864,8 @@
                             class="text-xl text-purple-100 mb-10 max-w-2xl mx-auto"
                         >
                             A simple appointment booking system where users can
-                            create accounts, choose available services, and manage
-                            their bookings with confidence.
+                            create accounts, choose available services, and
+                            manage their bookings with confidence.
                         </p>
 
                         <div
@@ -888,7 +925,7 @@
                             </div>
                             <div>
                                 <span class="text-2xl font-bold"
-                                    >SchoolSync</span
+                                    >ClinicSys</span
                                 >
                                 <p class="text-sm text-gray-400">
                                     Appointment System
@@ -972,7 +1009,7 @@
                 <!-- Copyright -->
                 <div class="mt-12 pt-8 border-t border-gray-800 text-center">
                     <p class="text-gray-400">
-                        Built with  as an academic project • PHP
+                        Built with as an academic project • PHP
                     </p>
                     <p class="text-sm text-gray-500 mt-2">
                         Appointment © 2026 • A simple appointment booking system

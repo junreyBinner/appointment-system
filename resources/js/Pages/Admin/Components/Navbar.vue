@@ -49,7 +49,7 @@
                     />
                     <span
                         class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-                        >Appoint<span class="text-green-700">Sys</span></span
+                        >Clinic<span class="text-green-700">Sys</span></span
                     >
                 </Link>
                 <form action="#" method="GET" class="hidden md:block md:pl-2">

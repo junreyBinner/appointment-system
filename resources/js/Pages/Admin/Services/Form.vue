@@ -65,6 +65,32 @@
                                             {{ form.errors.name }}
                                         </p>
                                     </div>
+
+                                    <!-- Doctor Name -->
+                                    <div>
+                                        <label
+                                            for="doctor_name"
+                                            class="block text-sm font-medium text-gray-700"
+                                        >
+                                            Doctor Name *
+                                        </label>
+                                        <div class="mt-1">
+                                            <input
+                                                type="text"
+                                                id="doctor_name"
+                                                v-model="form.doctor_name"
+                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                                placeholder="e.g., Dr. Juan Dela Cruz"
+                                            />
+                                        </div>
+                                        <p
+                                            v-if="form.errors.doctor_name"
+                                            class="mt-2 text-sm text-red-600"
+                                        >
+                                            {{ form.errors.doctor_name }}
+                                        </p>
+                                    </div>
+
                                     <!-- Description -->
                                     <div>
                                         <label
@@ -157,7 +183,7 @@
                                                 >
                                                     <span
                                                         class="text-gray-500 sm:text-sm"
-                                                        >$</span
+                                                        >₱</span
                                                     >
                                                 </div>
                                                 <input
@@ -286,6 +312,9 @@
                                     Free
                                 </span>
                             </div>
+                            <p class="text-sm text-gray-500 mb-2">
+                                {{ form.doctor_name || "Doctor name" }}
+                            </p>
 
                             <p class="text-gray-600 text-sm mb-4">
                                 {{
@@ -352,6 +381,7 @@ const props = defineProps({
 
 const form = useForm({
     name: props.service?.name || "",
+    doctor_name: props.service?.doctor_name || "",
     description: props.service?.description || "",
     duration_minutes: props.service?.duration_minutes || 30,
     price: props.service?.price || "",

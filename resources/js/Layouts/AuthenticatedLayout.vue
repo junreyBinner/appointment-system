@@ -12,13 +12,19 @@
                             :href="route('customer.dashboard')"
                             class="flex items-center gap-3 group"
                         >
-                            <CalendarDaysIcon
+                            <!-- Simple Medical Cross Icon -->
+                            <svg
                                 class="h-8 w-8 text-blue-600 transition-transform duration-300 group-hover:rotate-6"
-                            />
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                                />
+                            </svg>
+
                             <span class="text-xl font-bold text-gray-900">
-                                Appointment<span class="text-blue-600"
-                                    >Sys</span
-                                >
+                                Clinic<span class="text-blue-600">Sys</span>
                             </span>
                         </Link>
                     </div>

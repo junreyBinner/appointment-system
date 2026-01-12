@@ -175,17 +175,25 @@
                             :key="service.id"
                             class="rounded-xl border p-5 hover:shadow-md transition"
                         >
-                            <div class="flex justify-between mb-2">
-                                <h3 class="font-semibold">
-                                    {{ service.name }}
-                                </h3>
-                                <span
-                                    v-if="service.price"
-                                    class="text-sm font-medium text-blue-600"
-                                >
-                                    ${{ service.price }}
-                                </span>
+                            <div class="mb-2">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-semibold">
+                                        {{ service.name }}
+                                    </h3>
+
+                                    <span
+                                        v-if="service.price"
+                                        class="text-sm font-medium text-blue-600"
+                                    >
+                                        ₱{{ service.price }}
+                                    </span>
+                                </div>
+
+                                <p class="text-xs font-semibold text-gray-700">
+                                    Dr. {{ service.doctor_name }}
+                                </p>
                             </div>
+
                             <p class="text-sm text-gray-500 mb-4">
                                 {{ service.description }}
                             </p>

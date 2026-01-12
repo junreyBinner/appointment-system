@@ -101,7 +101,7 @@
                                 class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
                                 <CalendarIcon class="h-5 w-5 text-gray-500" />
-                                <span class="ml-3">Appointments</span>
+                                <span class="ml-3">Patient Appointments</span>
                             </Link>
                         </li>
 
@@ -112,7 +112,7 @@
                                 class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
                                 <CogIcon class="h-5 w-5 text-gray-500" />
-                                <span class="ml-3">Services</span>
+                                <span class="ml-3">Clinic Services</span>
                             </Link>
                         </li>
                     </ul>

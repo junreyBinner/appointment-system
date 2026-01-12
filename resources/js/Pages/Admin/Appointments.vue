@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
      <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-6">
   <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
-    Appointments
+    Patient Bookings
   </h1>
 
   <div class="flex flex-col gap-2 sm:flex-row sm:gap-4 w-full md:w-auto">

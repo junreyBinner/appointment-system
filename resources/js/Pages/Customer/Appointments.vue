@@ -88,6 +88,7 @@
                                     >
                                         <div class="flex-1">
                                             <div class="flex items-center mb-3">
+                                                <!-- Icon -->
                                                 <div
                                                     class="bg-gradient-to-r from-blue-100 to-indigo-100 p-2 rounded-lg mr-3"
                                                 >
@@ -105,13 +106,28 @@
                                                         />
                                                     </svg>
                                                 </div>
-                                                <h3
-                                                    class="text-xl font-bold text-gray-800"
-                                                >
-                                                    {{
-                                                        appointment.service.name
-                                                    }}
-                                                </h3>
+
+                                                <!-- Texts properly aligned -->
+                                                <div class="flex flex-col">
+                                                    <h3
+                                                        class="text-xl font-bold text-gray-800 leading-tight"
+                                                    >
+                                                        {{
+                                                            appointment.service
+                                                                .name
+                                                        }}
+                                                    </h3>
+
+                                                    <p
+                                                        class="text-sm font-semibold text-gray-600"
+                                                    >
+                                                        Dr.
+                                                        {{
+                                                            appointment.service
+                                                                .doctor_name
+                                                        }}
+                                                    </p>
+                                                </div>
                                             </div>
 
                                             <!-- Time Badge -->
