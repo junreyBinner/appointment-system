@@ -34,13 +34,25 @@ jobs:
           extensions: mbstring, pdo_mysql
           coverage: none
 
-      - name: Install dependencies
+      - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
 
       - name: Setup environment
         run: |
           cp .env.example .env
           php artisan key:generate
+
+      # <<< NEW: Node.js + Vite steps >>>
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run build
 
       - name: Run migrations
         env:
