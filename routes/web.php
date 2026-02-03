@@ -5,12 +5,9 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Http\Controllers\Admin\AppointmentController;
-use App\Http\Controllers\OtpController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DashController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -71,7 +68,7 @@ Route::patch('/services/{service}/toggle-status',
 
 
 // ================= USER PROFILE =================
-Route::middleware(['auth',  'role:customer'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', function () {
         return Inertia::render('Profile/Edit');
     })->name('profile.edit');
@@ -84,21 +81,19 @@ Route::middleware(['auth',  'role:customer'])->group(function () {
 });
 
 
-// ================= ADMIN PROFILE =================
-Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/profile', function () {
-        return Inertia::render('Admin/Profile/Edit');
-    })->name('profile.edit');
-
-    Route::patch('/profile', [ProfileController::class, 'update'])
-        ->name('profile.update');
-
-    Route::delete('/profile', [ProfileController::class, 'destroy'])
-        ->name('profile.destroy');
-});
-
 Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    $user = auth()->user();
+
+    if ($user->hasRole('admin')) {
+        return redirect()->route('admin.dashboard');
+    }
+
+    if ($user->hasRole('customer')) {
+        return redirect()->route('customer.dashboard');
+    }
+
+    abort(403);
 })->name('dashboard');
+
 
 require __DIR__.'/auth.php';
