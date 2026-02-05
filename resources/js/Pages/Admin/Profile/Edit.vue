@@ -4,6 +4,10 @@ import UpdateProfileInformationForm from "@/Pages/Profile/Partials/UpdateProfile
 import UpdatePasswordForm from "@/Pages/Profile/Partials/UpdatePasswordForm.vue";
 import DeleteUserForm from "@/Pages/Profile/Partials/DeleteUserForm.vue";
 
+defineOptions({
+    layout: AdminLayout
+}); 
+
 defineProps({
     mustVerifyEmail: {
         type: Boolean,
@@ -15,11 +19,6 @@ defineProps({
 </script>
 
 <template>
-  
-
-    <AdminLayout>
-       
-
         <main class="p-6 md:ml-64 pt-20 bg-gray-50 min-h-screen">
             <div class="py-12">
                 <div class="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
@@ -41,5 +40,4 @@ defineProps({
                 </div>
             </div>
         </main>
-    </AdminLayout>
 </template>
