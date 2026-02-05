@@ -1,5 +1,4 @@
 <template>
-    <AdminLayout>
         <main class="p-6 md:ml-64 pt-20 bg-gray-50 min-h-screen">
             <div class="max-w-7xl mx-auto space-y-8">
 
@@ -193,15 +192,12 @@
 
             </div>
         </main>
-    </AdminLayout>
 </template>
 
 <script setup>
-import { defineProps, onMounted } from 'vue'
+import { defineProps } from 'vue'
 import { Link } from '@inertiajs/vue3'
-import { initFlowbite } from 'flowbite'
-import { XCircleIcon } from '@heroicons/vue/24/outline'
-
+// import { initFlowbite } from 'flowbite'
 import AdminLayout from '@/Pages/Admin/Components/AdminLayout.vue'
 
 import {
@@ -213,13 +209,13 @@ import {
     ChevronRightIcon,
 } from '@heroicons/vue/24/outline'
 
+defineOptions({
+    layout: AdminLayout
+}) 
+
 defineProps({
     stats: Object,
     todaysAppointments: Array,
-})
-
-onMounted(() => {
-    initFlowbite()
 })
 
 function formatTime(timeString) {
