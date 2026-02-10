@@ -20,6 +20,7 @@ createInertiaApp({
         const app = createApp({ render: () => h(App, props) });
         import('./Components/PrimaryButton.vue');
         import('./Layouts/GuestLayout.vue');
+        
 
         app.use(plugin);
         app.use(head)

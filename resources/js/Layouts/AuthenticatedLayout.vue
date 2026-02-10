@@ -112,6 +112,7 @@
         <main class="py-6">
             <slot />
         </main>
+        <Chatbot />
     </div>
 </template>
 
@@ -119,6 +120,7 @@
 import { ref, computed } from "vue";
 import { Link, router, usePage } from "@inertiajs/vue3";
 import NavLink from "@/Components/NavLink.vue";
+import Chatbot from "@/Components/Chatbot.vue"
 import { CalendarDaysIcon, ChevronDownIcon } from "@heroicons/vue/24/outline";
 
 const dropdownOpen = ref(false);

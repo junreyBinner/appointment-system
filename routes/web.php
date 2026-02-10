@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\ChatController;
 
 // USER PROFILE CONTROLLER
 use App\Http\Controllers\ProfileController;
@@ -25,6 +26,11 @@ Route::get('/', function () {
         'phpVersion'    => PHP_VERSION,
     ]);
 });
+
+// chatbot code here
+Route::post('/chat/send', [ChatController::class, 'send']);
+
+
 
 
 // ================= CUSTOMER ROUTES =================

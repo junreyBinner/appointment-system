@@ -9,6 +9,7 @@
         <Sidebar />
 
         <slot />
+        <Chatbot />
     </div>
 </template>
 
@@ -17,6 +18,7 @@ import { onMounted } from "vue";
 import { initFlowbite } from "flowbite";
 import Sidebar from "../Components/Sidebar.vue";
 import Navbar from "../Components/Navbar.vue";
+import Chatbot from "@/Components/Chatbot.vue"
 
 // initialize components based on data attribute selectors
 onMounted(() => {
